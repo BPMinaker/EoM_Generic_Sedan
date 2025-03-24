@@ -34,6 +34,9 @@ result = analyze(output)
 #animate_modes(system, result)
 
 # write system matrices to files
+if !isdir("data")
+    mkdir("data")
+end
 (; A, B, C, D) = result.ss_eqns
 writedlm(joinpath("data", "A.dat"), A)
 writedlm(joinpath("data", "B.dat"), B)
